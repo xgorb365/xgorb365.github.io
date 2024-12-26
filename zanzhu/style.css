@@ -1,0 +1,222 @@
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #242424;
+    --text-color: #ffffff;
+    --highlight-blue: #3498db;
+    --highlight-purple: #9b59b6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* 鍗＄墖鍩虹鏍峰紡 */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+/* 娆㈣繋鍗＄墖 */
+.welcome-card {
+    position: relative;
+}
+
+.welcome-card h2 {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.welcome-card h1 {
+    font-size: 24px;
+    margin: 12px 0;
+    line-height: 1.4;
+}
+
+.circle-button {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-section {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.payment-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.payment-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.payment-icon {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 2px;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+}
+
+.payment-type {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 1px;
+}
+
+.payment-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.qr-code {
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.wechat .payment-type {
+    color: #52ee4f;
+}
+
+.alipay .payment-type {
+    color: #00a4ff;
+}
+
+.thanks-card {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.thanks-card h2 {
+    font-size: 20px;
+    margin: 0 0 16px 0;
+}
+
+.detail-card {
+    grid-column: span 1;
+}
+
+.detail-card h3 {
+    font-size: 18px;
+    margin: 0 0 16px 0;
+}
+
+.slogan {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 24px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.slogan::before,
+.slogan::after {
+    content: '🫡 ';
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.slogan .dream {
+    color: var(--highlight-blue);
+}
+
+.slogan .good {
+    color: var(--highlight-purple);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "welcome"
+            "payment"
+            "monthly"
+            "yearly"
+            "slogan"
+            "thanks";
+        padding: 16px;
+    }
+
+    .payment-section {
+        grid-area: payment;
+    }
+
+    .welcome-card {
+        grid-area: welcome;
+    }
+
+    .thanks-card {
+        grid-area: thanks;
+    }
+
+    .detail-card:nth-of-type(1) {
+        grid-area: monthly;
+    }
+
+    .detail-card:nth-of-type(2) {
+        grid-area: yearly;
+    }
+
+    .slogan {
+        grid-area: slogan;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-section {
+        gap: 16px;
+    }
+
+    .container {
+        gap: 16px;
+    }
+}
